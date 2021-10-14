@@ -24,7 +24,7 @@ namespace EC_FixBadUpdate
 			Harmony.CreateAndPatchAll(typeof(EC_FixBadUpdate));
 		}
 		
-		[HarmonyTranspiler, HarmonyPatch(typeof(HEditGlobal), "CreateChara")]
+		[HarmonyTranspiler, HarmonyPatch(typeof(HEditGlobal), "CreateChara", typeof(int))]
 		public static IEnumerable<CodeInstruction> HEditGlobal_CreateChara_ForceZeroId(IEnumerable<CodeInstruction> instructions)
 		{
 			var il = instructions.ToList();
